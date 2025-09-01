@@ -13,25 +13,22 @@ cmds = [
   "python -m pip install --user --upgrade pip",
   "python -m pip install --user virtualenv",
   "python -m virtualenv /app/venv",
-  ". /app/venv/bin/activate",
-  "pip install --upgrade pip setuptools wheel",
-  "pip install -r requirements.txt"
+  "/app/venv/bin/pip install --upgrade pip setuptools wheel",
+  "/app/venv/bin/pip install -r requirements.txt"
 ]
 
 [phases.build]
 cmds = [
-  ". /app/venv/bin/activate",
   "echo 'Build phase completed'"
 ]
 
 [phases.start]
 cmds = [
-  ". /app/venv/bin/activate",
-  "python simple_app.py"
+  "/app/venv/bin/python simple_app.py"
 ]
 
 [start]
-cmd = ". /app/venv/bin/activate && python simple_app.py"
+cmd = "/app/venv/bin/python simple_app.py"
 
 [variables]
 PYTHONPATH = "/app"
